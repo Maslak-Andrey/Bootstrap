@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello my Admin</title>
+</head>
+<body>
+<h1>Admin's panel</h1>
+<td>
+    <form th:method="GET" th:action="@{/index}">
+        <input type="submit" value="Link to User's list"/>
+    </form>
+</td>
+<br>
+<td>
+    <form th:method="GET" th:action="@{/show}">
+        <input type="submit" value="Information about Admin"/>
+    </form>
+</td>
+<br>
+<td>
+    <form th:method="GET" th:action="@{/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+</td>
+</body>
+</html>

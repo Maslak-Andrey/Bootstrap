@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User's page</title>
+</head>
+<body>
+<h1>User's account</h1>
+<div>
+    <td>
+        <form th:method="GET" th:action="@{/show}">
+            <input type="submit" value="Information about User"/>
+        </form>
+    </td>
+    <br>
+    <td>
+        <form th:method="GET" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+        </form>
+    </td>
+
+
+</div>
+</body>
+</html>
