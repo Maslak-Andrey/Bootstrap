@@ -23,10 +23,10 @@ public class UserController {
 //        return "login";
 //    }
 
-    @GetMapping("/user")
-    public String userLoginPage() {
-        return "user";
-    }
+//    @GetMapping("/user")
+//    public String userLoginPage() {
+//        return "user";
+//    }
 
     @GetMapping("/show")
     public String userPage(Model model, Principal principal) {

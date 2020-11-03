@@ -4,11 +4,13 @@ import com.masluck.securityboot.entities.Role;
 import com.masluck.securityboot.entities.User;
 import com.masluck.securityboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,13 +24,16 @@ public class AdminController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
+//    @GetMapping("/admin")
+//    public String admin() {
+//        return "admin";
+//    }
 
     @GetMapping("/index")
-    public String index(Model model) {
+    public String index(Model model, Principal principal) {
+        User currentUser = userRepository.findByUsername(principal.getName());
+        model.addAttribute("user", currentUser);
+
         model.addAttribute("users", userRepository.findAll());
         return "index";
     }
@@ -81,7 +86,9 @@ public class AdminController {
     }
 
     @GetMapping("/admin/new")
-    public String addUser() {
+    public String addUser(Principal principal, Model model) {
+        User currentUser = userRepository.findByUsername(principal.getName());
+        model.addAttribute("user", currentUser);
         return "new";
     }
 
