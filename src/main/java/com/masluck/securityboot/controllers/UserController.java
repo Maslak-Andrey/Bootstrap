@@ -34,4 +34,11 @@ public class UserController {
         model.addAttribute("user", currentUser);
         return "show";
     }
+
+    @GetMapping("/showuser")
+    public String onlyUserPage(Model model, Principal principal) {
+        User currentUser = userRepository.findByUsername(principal.getName());
+        model.addAttribute("user", currentUser);
+        return "showuser";
+    }
 }

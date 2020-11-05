@@ -23,7 +23,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         if (roles.contains("ROLE_ADMIN")) {
             httpServletResponse.sendRedirect("/index");
         } else {
-            httpServletResponse.sendRedirect("/show");
+            httpServletResponse.sendRedirect("/showuser");
         }
     }
 }
